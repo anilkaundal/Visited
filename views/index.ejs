@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visited</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/cotton/64/000000/worldwide-location--v1.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Pirata+One&amp"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns is-desktop is-vcentered">
+        <div class="column">
+          <canvas class="globe" width="1800" height="1600"></canvas>
+        </div>
+        <div class="column has-text-centered">
+          <form
+            name="myForm"
+            action="/"
+            method="POST"
+            onsubmit="return validateForm()"
+          >
+            <div class="field">
+              <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                  <div class="control has-icons-left">
+                    <input
+                      class="input is-danger is-rounded"
+                      name="place"
+                      type="text"
+                      placeholder="Enter Location, Country"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-map-pin"></i>
+                    </span>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                      <div class="dropdown-content">
+                        <div class="dropdown-item">
+                          <p>
+                            Keeping
+                            <strong>blank or entering whitespaces</strong> not
+                            allowed.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                  <div class="control has-icons-left">
+                    <input
+                      class="input is-danger is-rounded"
+                      name="del"
+                      type="text"
+                      placeholder="Delete Location"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div class="dropdown-content">
+                    <div class="dropdown-item">
+                      <p>Can be left <strong>empty</strong>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="button is-danger is-outlined is-rounded"
+            >
+              Go
+            </button>
+          </form>
+          <br />
+          <button
+            class="button is-danger is-outlined is-rounded"
+            onclick="location.reload();"
+          >
+            <span>Refresh</span>
+            <span class="icon is-small">
+              <i class="fas fa-spinner"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      fetch("./locations")
+        .then((results) => results.json())
+        .then((data) => data.forEach((element) => markers.push(element)));
+
+      function validateForm() {
+        var x = document.forms["myForm"]["place"].value;
+        if (x.trim() == null || x.trim() == "" || x === " ") {
+          alert("Please enter a valid input.");
+          return false;
+        }
+      }
+    </script>
+    <script type="text/javascript" src="/js/index.js"></script>
+  </body>
+</html>

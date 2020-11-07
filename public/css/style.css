@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+input, button, p {
+  margin: 0;
+  padding: 0;
+  font-family: "Syne Mono", monospace;
+}
+
+body {
+  margin: 0;
+  background-color: #f7f6f2;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  max-height: 100vmin;
+  max-width: 100vmin;
+  margin: 0 auto;
+}
+
+.globe {
+  height: 100vmin;
+  width: auto;
+  cursor: grab;
+}
+
+.globe--dragging {
+  cursor: grabbing;
+}
