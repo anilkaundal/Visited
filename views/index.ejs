@@ -23,6 +23,48 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <img src="/images/Visited.png" alt="Logo" />
+            </a>
+          </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <span class="navbar-item">
+                <div class="dropdown is-hoverable">
+                  <div class="dropdown-trigger">
+                    <button
+                      class="button"
+                      aria-haspopup="true"
+                      aria-controls="dropdown-menu4"
+                    >
+                      <img
+                        src="https://img.icons8.com/pastel-glyph/64/000000/information--v2.png"
+                      /><span>Admin</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div class="dropdown-content">
+                      <div class="dropdown-item">
+                        <span class="tag is-dark text-is-light">
+                          injuriousanswer@gmail.com</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
     <div class="container">
       <div class="columns is-desktop is-vcentered">
         <div class="column">
@@ -72,6 +114,7 @@
                       name="del"
                       type="text"
                       placeholder="Delete Location"
+                      disabled
                     />
                     <span class="icon is-small is-left">
                       <i class="fas fa-trash"></i>
@@ -81,7 +124,10 @@
                 <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div class="dropdown-content">
                     <div class="dropdown-item">
-                      <p>Can be left <strong>empty</strong>.</p>
+                      <p>
+                        In Development, please contact <strong>Admin</strong> to
+                        make a delete request.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -108,9 +154,17 @@
       </div>
     </div>
     <script>
-      fetch("./locations")
+      fetch("https://locations-database.herokuapp.com/locations")
         .then((results) => results.json())
-        .then((data) => data.forEach((element) => markers.push(element)));
+        .then((data) =>
+          data.forEach((element) =>
+            markers.push({
+              name: element.name,
+              lat: element.lat,
+              long: element.long,
+            })
+          )
+        );
 
       function validateForm() {
         var x = document.forms["myForm"]["place"].value;
