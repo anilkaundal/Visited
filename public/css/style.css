@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
-input, button, p, span {
+input, button, p, span, a {
   margin: 0;
   padding: 0;
   font-family: "Syne Mono", monospace;
