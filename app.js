@@ -14,8 +14,6 @@ app.set("view engine", "ejs");
 
 app.use(express.static('public'))
 
-app.use(express.static(__dirname + '/public/img'));
-
 app.get('/', function (req, res) {
   res.render('index');
 });
