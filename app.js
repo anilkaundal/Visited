@@ -64,8 +64,8 @@ app.post('/', function (req, res) {
           },
           body: JSON.stringify(location)
         })
-          // fetch("https://locations-database.herokuapp.com/locations")
-        ])
+        // fetch("https://locations-database.herokuapp.com/locations")
+      ])
         /*
           .then((results) => results.json())
           .then((data) => data.forEach((element) => {
@@ -76,10 +76,10 @@ app.post('/', function (req, res) {
               })
             }
           }))*/
-          .catch(function (error) {
-            // if there's an error, log it
-            console.log(error);
-          });
+        .catch(function (error) {
+          // if there's an error, log it
+          console.log(error);
+        });
       res.redirect('/');
     })
   })
